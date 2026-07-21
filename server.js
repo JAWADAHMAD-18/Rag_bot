@@ -11,5 +11,5 @@ app.use("/api", chatRoutes);
 
 const PORT = process.env.FRONTEND_URL || 5000;
 app.listen(PORT, () => {
-  console.log(`Server is running at: http://localhost:${PORT}`);
+  console.log(`Server is running at: http://localhost:${FRONTEND_URL}`);
 });
