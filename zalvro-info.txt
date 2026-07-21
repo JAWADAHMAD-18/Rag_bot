@@ -1,0 +1,21 @@
+Zalvro is an AI automation and web development agency, launched in November 2025. The website is zalvrohq.com and the contact email is contact@zalvrohq.com. Communication with clients happens over WhatsApp, email, and other channels as preferred. Zalvro helps businesses grow through custom websites, AI-powered voice receptionists, AI chatbots, and workflow automation, reducing manual work and improving lead response time. The primary target niches are real estate and medical/dental clinics, though Zalvro takes on projects in other industries depending on the client's needs.
+
+Zalvro offers full-stack web development using React, Node.js, and MongoDB (the MERN stack). This includes single-page and multi-page websites. Typical project types include business websites, real estate listing sites, agency and portfolio sites, and web apps with custom backend functionality.
+
+Zalvro builds AI voice receptionists, also called AI calling agents, using VAPI, ElevenLabs, and Groq. These AI agents can answer and make phone calls on behalf of a business, handling tasks like answering FAQs, booking appointments, and qualifying leads over calls. This service is useful for clinics, real estate agencies, and any business that receives a high volume of phone inquiries but can't staff a full-time receptionist.
+
+Zalvro builds AI chatbots for websites that can answer questions, qualify leads, and guide visitors. One example is PropBot, a real estate chatbot built with Gemini.
+
+Zalvro also builds WhatsApp AI bots that respond to customer messages on behalf of a business automatically, answering anything related to the business's services or offerings.
+
+Zalvro provides AI automation and workflow services built using n8n, Groq/Llama, and Zapier-style integrations. Example use cases include automated lead capture and follow-up, email workflows, syncing leads into Google Sheets, and Slack notifications for new leads or replies.
+
+Zalvro offers website maintenance, providing ongoing support for updates, bug fixes, and general upkeep after a site launches.
+
+Zalvro's portfolio includes TripFusion, a solo-built full-stack AI travel platform; TechBuild Realty, a sample real estate website featuring the PropBot AI chatbot; an AI Calling Agent demo voice receptionist project; a WhatsApp AI Bot demo; and various AI automation workflow projects covering lead capture, follow-up, and notifications.
+
+Zalvro works with starting price ranges, with final pricing customized based on the client's exact requirements after a discovery meeting. The AI Calling Agent starts from $289. A website starts from $299 for a single-page or double-page site. Anything beyond these, such as extra pages, custom integrations, or automation workflows, is quoted based on the client's specific requirements after a meeting.
+
+Small projects are typically delivered in 2 to 3 days. Larger projects take up to 10 to 12 days depending on scope. Requirements and scope are discussed with the client first, then timeline and pricing are confirmed before work starts. Communication throughout the project happens over WhatsApp, email, or the client's preferred channel.
+
+Zalvro offers ongoing support after a project is delivered, including website maintenance. Zalvro can redesign or improve an existing website, or add new features and integrations like AI chatbots or automation to a site the client already has. Zalvro's core focus industries are real estate and medical/dental clinics, but the team takes on projects in other industries depending on requirements. Pricing has starting ranges for common services, with final pricing customized in a discovery meeting based on exact requirements. To get started, a client can reach out via contact@zalvrohq.com or WhatsApp to discuss requirements, after which Zalvro confirms scope, timeline, and pricing before starting work.
