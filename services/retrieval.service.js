@@ -1,17 +1,13 @@
-import qdrantClient from "../config/qdrant.js";
-import { getEmbedding } from "./embedding.service.js";
+// LangChain migration: vectorStore.asRetriever() replaces manual qdrantClient.search() + getEmbedding()
+import { vectorStore } from "../config/qdrant.js";
 
-const COLLECTION_NAME = "rag_learning";
+// LangChain migration: asRetriever wraps the vector store in a LangChain Retriever interface
+const retriever = vectorStore.asRetriever({ k: 3 });
 
-async function retrieveChunks(query, topK = 3) {
-  const queryVector = await getEmbedding(query);
-
-  const results = await qdrantClient.search(COLLECTION_NAME, {
-    vector: queryVector,
-    limit: topK,
-  });
-
-  return results.map((r) => r.payload.text);
+async function retrieveChunks(query) {
+  // LangChain migration: retriever.invoke() replaces manual embedding + qdrantClient.search()
+  const docs = await retriever.invoke(query);
+  return docs.map((doc) => doc.pageContent);
 }
 
 export { retrieveChunks };

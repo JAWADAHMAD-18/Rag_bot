@@ -1,3 +1,14 @@
+// LangChain migration: ChatGroq from @langchain/groq replaces raw fetch() to Groq REST API
+import { ChatGroq } from "@langchain/groq";
+import { HumanMessage } from "@langchain/core/messages";
+
+// LangChain migration: ChatGroq instance replaces manual fetch + JSON.stringify
+const llm = new ChatGroq({
+  apiKey: process.env.GROQ_API_KEY,
+  model: "llama-3.3-70b-versatile",
+  temperature: 0.3,
+});
+
 async function generateAnswer(query, chunks) {
   const context = chunks.join("\n\n");
 
@@ -13,21 +24,9 @@ Question: ${query}
 
 Answer:`;
 
-  const response = await fetch("https://api.groq.com/openai/v1/chat/completions", {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-      "Authorization": `Bearer ${process.env.GROQ_API_KEY}`,
-    },
-    body: JSON.stringify({
-      model: "llama-3.3-70b-versatile",
-      messages: [{ role: "user", content: prompt }],
-      temperature: 0.3,
-    }),
-  });
-
-  const data = await response.json();
-  return data.choices[0].message.content;
+  // LangChain migration: llm.invoke() replaces manual fetch + response.json() + data.choices[0].message.content
+  const response = await llm.invoke([new HumanMessage(prompt)]);
+  return response.content;
 }
 
-export { generateAnswer };
+export { generateAnswer, llm };
