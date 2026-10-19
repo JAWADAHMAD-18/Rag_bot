@@ -1,14 +1,13 @@
-import qdrantClient from "./qdrant.js";
+import qdrantClient, { COLLECTION_NAME, VECTOR_SIZE } from "./qdrant.js";
 
 async function main() {
-  try {
-    const result = await qdrantClient.createCollection("rag_learning", {
-      vectors: { size: 384, distance: "Cosine" },
-    });
-    console.log("Collection ban gayi cloud pe! Result:", result);
-  } catch (err) {
-    console.error("Error:", err.message || err);
-  }
+  const result = await qdrantClient.createCollection(COLLECTION_NAME, {
+    vectors: { size: VECTOR_SIZE, distance: "Cosine" },
+  });
+  console.log("Collection created:", result);
 }
 
-main();
+main().catch((error) => {
+  console.error("Could not create the Qdrant collection:", error);
+  process.exitCode = 1;
+});

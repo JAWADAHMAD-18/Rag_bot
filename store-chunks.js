@@ -1,28 +1,60 @@
-// LangChain migration: vectorStore.addDocuments() replaces manual getEmbedding() loop + qdrantClient.upsert()
-import { readFile } from "fs/promises";
+import { readFile } from "node:fs/promises";
+import { Document } from "@langchain/core/documents";
 import { RecursiveCharacterTextSplitter } from "@langchain/textsplitters";
-import { vectorStore } from "./config/qdrant.js";
-
-const COLLECTION_NAME = "rag_learning";
+import {
+  CONTENT_PAYLOAD_KEY,
+  COLLECTION_NAME,
+  VECTOR_SIZE,
+  qdrantClient,
+  vectorStore,
+} from "./config/qdrant.js";
 
 async function main() {
-  // Step 1: file load karo
-  const text = await readFile("./zalvro-info.txt", "utf-8");
-
-  // Step 2: chunk karo
-  // LangChain migration: RecursiveCharacterTextSplitter kept (was already LangChain), chunkSize updated to ~500
+  const text = await readFile(new URL("./zalvro-info.txt", import.meta.url), "utf-8");
+  const sectionTexts = text.trim().split(/(?=^## )/m).filter(Boolean);
   const splitter = new RecursiveCharacterTextSplitter({
-    chunkSize: 500,
-    chunkOverlap: 50,
+    chunkSize: 700,
+    chunkOverlap: 100,
   });
-  const chunks = await splitter.createDocuments([text]);
+  const documents = [];
 
-  console.log(`Total chunks: ${chunks.length}`);
+  if (sectionTexts.length === 0 || sectionTexts.some((section) => !section.startsWith("## "))) {
+    throw new Error("Knowledge file must contain content organized under ## section headings.");
+  }
 
-  // LangChain migration: addDocuments replaces manual for-loop of getEmbedding + qdrantClient.upsert
-  await vectorStore.addDocuments(chunks);
+  for (const sectionText of sectionTexts) {
+    const [heading, ...bodyLines] = sectionText.split(/\r?\n/);
+    const section = heading.replace(/^##\s+/, "").trim();
+    const body = bodyLines.join("\n").trim();
+    const chunks = await splitter.createDocuments([body], [{ section }]);
 
-  console.log("All chunks are store in Qudrant cloud!");
+    documents.push(
+      ...chunks.map(
+        (chunk, index) =>
+          new Document({
+            pageContent: `${heading}\n${chunk.pageContent}`,
+            metadata: { section, sectionChunk: index + 1 },
+          }),
+      ),
+    );
+  }
+
+  if (documents.length === 0) {
+    throw new Error("No non-empty knowledge sections were found to ingest.");
+  }
+
+  await qdrantClient.deleteCollection(COLLECTION_NAME);
+  await qdrantClient.createCollection(COLLECTION_NAME, {
+    vectors: { size: VECTOR_SIZE, distance: "Cosine" },
+  });
+  await vectorStore.addDocuments(documents);
+
+  console.log(
+    `Recreated ${COLLECTION_NAME} and stored ${documents.length} section-based chunks using payload key "${CONTENT_PAYLOAD_KEY}".`,
+  );
 }
 
-main();
+main().catch((error) => {
+  console.error("Knowledge ingestion failed:", error);
+  process.exitCode = 1;
+});

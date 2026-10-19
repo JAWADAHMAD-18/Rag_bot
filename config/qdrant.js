@@ -1,23 +1,28 @@
-// LangChain migration: QdrantVectorStore from @langchain/qdrant replaces raw QdrantClient for vector search
 import "dotenv/config";
 import { QdrantClient } from "@qdrant/js-client-rest";
 import { QdrantVectorStore } from "@langchain/qdrant";
 import { embeddings } from "../services/embedding.service.js";
 
 const COLLECTION_NAME = "rag_learning";
+const VECTOR_SIZE = 384;
+const CONTENT_PAYLOAD_KEY = "text";
 
-// Raw client kept for setup-qdrant.js (one-time collection creation)
 const qdrantClient = new QdrantClient({
   url: process.env.QDRANT_CLUSTER,
   apiKey: process.env.QDRANT_API_KEY,
 });
 
-// LangChain migration: QdrantVectorStore.fromExistingCollection replaces raw QdrantClient for search/upsert
-const vectorStore = await QdrantVectorStore.fromExistingCollection(embeddings, {
-  url: process.env.QDRANT_CLUSTER,
-  apiKey: process.env.QDRANT_API_KEY,
+const vectorStore = new QdrantVectorStore(embeddings, {
+  client: qdrantClient,
   collectionName: COLLECTION_NAME,
+  contentPayloadKey: CONTENT_PAYLOAD_KEY,
 });
 
 export default qdrantClient;
-export { vectorStore, COLLECTION_NAME };
+export {
+  qdrantClient,
+  vectorStore,
+  COLLECTION_NAME,
+  VECTOR_SIZE,
+  CONTENT_PAYLOAD_KEY,
+};

@@ -1,21 +1,98 @@
-Zalvro is an AI automation and web development agency, launched in November 2025. The website is zalvrohq.com and the contact email is contact@zalvrohq.com. Communication with clients happens over WhatsApp, email, and other channels as preferred. Zalvro helps businesses grow through custom websites, AI-powered voice receptionists, AI chatbots, and workflow automation, reducing manual work and improving lead response time. The primary target niches are real estate and medical/dental clinics, though Zalvro takes on projects in other industries depending on the client's needs.
+## About
 
-Zalvro offers full-stack web development using React, Node.js, and MongoDB (the MERN stack). This includes single-page and multi-page websites. Typical project types include business websites, real estate listing sites, agency and portfolio sites, and web apps with custom backend functionality.
+Zalvro is an AI automation and web development agency launched in November 2025. Zalvro helps businesses grow with custom websites and AI-powered tools that reduce manual work and improve lead response. Its primary focus industries are real estate and medical/dental clinics, while projects in other industries are considered based on requirements.
 
-Zalvro builds AI voice receptionists, also called AI calling agents, using VAPI, ElevenLabs, and Groq. These AI agents can answer and make phone calls on behalf of a business, handling tasks like answering FAQs, booking appointments, and qualifying leads over calls. This service is useful for clinics, real estate agencies, and any business that receives a high volume of phone inquiries but can't staff a full-time receptionist.
+Website: https://zalvrohq.com
 
-Zalvro builds AI chatbots for websites that can answer questions, qualify leads, and guide visitors. One example is PropBot, a real estate chatbot built with Gemini.
+## Services
 
-Zalvro also builds WhatsApp AI bots that respond to customer messages on behalf of a business automatically, answering anything related to the business's services or offerings.
+### Web development
 
-Zalvro provides AI automation and workflow services built using n8n, Groq/Llama, and Zapier-style integrations. Example use cases include automated lead capture and follow-up, email workflows, syncing leads into Google Sheets, and Slack notifications for new leads or replies.
+Zalvro builds single-page and multi-page websites, business websites, real estate listing sites, agency and portfolio sites, and web applications with custom backend functionality. The web development stack includes React, Node.js, and MongoDB (MERN).
 
-Zalvro offers website maintenance, providing ongoing support for updates, bug fixes, and general upkeep after a site launches.
+### AI voice receptionists
 
-Zalvro's portfolio includes TripFusion, a solo-built full-stack AI travel platform; TechBuild Realty, a sample real estate website featuring the PropBot AI chatbot; an AI Calling Agent demo voice receptionist project; a WhatsApp AI Bot demo; and various AI automation workflow projects covering lead capture, follow-up, and notifications.
+Zalvro builds AI calling agents using Vapi, ElevenLabs, and Groq. They can answer or make business calls, answer frequently asked questions, book appointments, and qualify leads. They can help clinics, real estate agencies, and other businesses that receive many phone inquiries.
 
-Zalvro works with starting price ranges, with final pricing customized based on the client's exact requirements after a discovery meeting. The AI Calling Agent starts from $289. A website starts from $299 for a single-page or double-page site. Anything beyond these, such as extra pages, custom integrations, or automation workflows, is quoted based on the client's specific requirements after a meeting.
+### AI chatbots
 
-Small projects are typically delivered in 2 to 3 days. Larger projects take up to 10 to 12 days depending on scope. Requirements and scope are discussed with the client first, then timeline and pricing are confirmed before work starts. Communication throughout the project happens over WhatsApp, email, or the client's preferred channel.
+Zalvro builds website chatbots that answer questions, qualify leads, and guide visitors. PropBot is a real estate chatbot example built with Gemini.
 
-Zalvro offers ongoing support after a project is delivered, including website maintenance. Zalvro can redesign or improve an existing website, or add new features and integrations like AI chatbots or automation to a site the client already has. Zalvro's core focus industries are real estate and medical/dental clinics, but the team takes on projects in other industries depending on requirements. Pricing has starting ranges for common services, with final pricing customized in a discovery meeting based on exact requirements. To get started, a client can reach out via contact@zalvrohq.com or WhatsApp to discuss requirements, after which Zalvro confirms scope, timeline, and pricing before starting work.
+### WhatsApp AI bots
+
+Zalvro builds WhatsApp bots that automatically respond to customer messages about a business and its offerings.
+
+### AI and workflow automation
+
+Zalvro builds automations using n8n, Groq/Llama, and integrations such as Zapier-style workflows. Examples include lead capture and follow-up, email workflows, syncing leads to Google Sheets, and Slack notifications for new leads or replies.
+
+### Website maintenance and improvements
+
+Zalvro provides post-launch website maintenance, updates, bug fixes, and general upkeep. It can also redesign or improve an existing website and add features or integrations such as chatbots and automation.
+
+## Pricing Approach
+
+Pricing is not fixed. It depends on the project's scope and requirements, including the number of pages and features, custom functionality, integrations, and any AI or workflow automation. Zalvro discusses requirements with the client and confirms the scope and tailored pricing before work begins.
+
+For a project-specific estimate, contact Zalvro at https://zalvrohq.com/contact.
+
+## Process
+
+1. Contact Zalvro and discuss the project requirements.
+2. Agree on the scope and confirm a project-specific timeline and pricing before work begins.
+3. Communicate during delivery over WhatsApp, email, or another channel preferred by the client.
+4. Get ongoing support after delivery, including website maintenance when needed.
+
+Small projects are typically delivered in 2 to 3 days. Larger projects can take 10 to 12 days depending on scope and requirements.
+
+## Portfolio and Examples
+
+- TripFusion: a solo-built full-stack AI travel platform.
+- TechBuild Realty: a sample real estate website featuring the PropBot AI chatbot.
+- AI Calling Agent: a demo voice receptionist project.
+- WhatsApp AI Bot: a demo bot project.
+- AI automation workflows: examples include lead capture, follow-up, and notifications.
+
+## Technology & Stack
+
+Zalvro's primary/default web development stack is MERN: MongoDB, Express, React, and Node.js. Zalvro usually builds with MERN, but can work with a client's preferred or required stack when it is within the known technologies below.
+
+Zalvro is also comfortable with Next.js, TypeScript, Python for machine learning/AI and automation, Qdrant as a vector database, LangChain, and WhatsApp bot integrations. Node.js and MongoDB are also part of the primary MERN stack.
+
+Python is known for ML/AI and automation work; Django and other Python web frameworks are not confirmed. Do not assume or claim support for unlisted stacks or technologies. Ask what stack or requirements the visitor has in mind if they have not specified one.
+
+Other technologies used in documented projects include Vapi, ElevenLabs, Groq/Llama, Gemini (PropBot), n8n, Zapier-style integrations, Google Sheets, and Slack. These examples do not imply support for unrelated or unlisted programming stacks.
+
+## Contact
+
+Contact page: https://zalvrohq.com/contact
+Email: contact@zalvrohq.com
+WhatsApp: https://wa.me/923039245454
+
+Visitors can contact Zalvro to discuss project requirements, scope, timeline, and pricing.
+
+## FAQ
+
+### What services does Zalvro provide?
+
+Web development, AI voice receptionists, website and WhatsApp chatbots, AI/workflow automation, and website maintenance.
+
+### How much does a project cost?
+
+Pricing depends on project scope and requirements. Pages, features, custom functionality, integrations, and automation affect the work involved. Contact Zalvro for a tailored estimate; do not assume or quote a fixed price.
+
+### How long does a project take?
+
+Small projects are typically delivered in 2 to 3 days. Larger projects can take 10 to 12 days depending on scope and requirements.
+
+### Can Zalvro improve a website that already exists?
+
+Yes. Zalvro can redesign or improve an existing website and add features or integrations such as chatbots and automation.
+
+### Does Zalvro work outside real estate and clinics?
+
+Yes. Real estate and medical/dental clinics are primary focus industries, and projects in other industries are considered based on requirements.
+
+### How do I start a project or speak to the team?
+
+Visit https://zalvrohq.com/contact, email contact@zalvrohq.com, or message Zalvro on WhatsApp at https://wa.me/923039245454. Zalvro discusses requirements and confirms scope, timeline, and pricing before work begins.
