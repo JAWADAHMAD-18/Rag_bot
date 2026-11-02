@@ -1,28 +1,28 @@
 // LangChain migration: vectorStore.addDocuments() replaces manual getEmbedding() loop + qdrantClient.upsert()
 import { readFile } from "fs/promises";
-import { RecursiveCharacterTextSplitter } from "@langchain/textsplitters";
-import { vectorStore } from "./config/qdrant.js";
-
-const COLLECTION_NAME = "rag_learning";
+import qdrantClient, { COLLECTION_NAME, vectorStore } from "./config/qdrant.js";
+import { KNOWLEDGE_SOURCE, createKnowledgeChunks } from "./services/knowledge-base.js";
 
 async function main() {
-  // Step 1: file load karo
-  const text = await readFile("./zalvro-info.txt", "utf-8");
+  const text = await readFile(new URL(`./${KNOWLEDGE_SOURCE}`, import.meta.url), "utf-8");
+  const chunks = await createKnowledgeChunks(text);
 
-  // Step 2: chunk karo
-  // LangChain migration: RecursiveCharacterTextSplitter kept (was already LangChain), chunkSize updated to ~500
-  const splitter = new RecursiveCharacterTextSplitter({
-    chunkSize: 500,
-    chunkOverlap: 50,
+  for (const field_name of ["metadata.source", "metadata.digest"]) {
+    await qdrantClient.createPayloadIndex(COLLECTION_NAME, {
+      field_name,
+      field_schema: "keyword",
+      wait: true,
+    });
+  }
+  await qdrantClient.delete(COLLECTION_NAME, {
+    filter: { must: [{ key: "metadata.source", match: { value: KNOWLEDGE_SOURCE } }] },
+    wait: true,
   });
-  const chunks = await splitter.createDocuments([text]);
-
   console.log(`Total chunks: ${chunks.length}`);
 
-  // LangChain migration: addDocuments replaces manual for-loop of getEmbedding + qdrantClient.upsert
   await vectorStore.addDocuments(chunks);
 
-  console.log("All chunks are store in Qudrant cloud!");
+  console.log("All chunks are stored in Qdrant cloud!");
 }
 
 main();

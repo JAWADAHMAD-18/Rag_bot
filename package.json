@@ -5,7 +5,9 @@
   "main": "index.js",
   "type": "module",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "ingest": "node store-chunks.js",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "test:visitors": "node scripts/visitor-questions.js"
   },
   "keywords": [],
   "author": "",
